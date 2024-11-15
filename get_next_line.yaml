@@ -1,0 +1,4 @@
+Apuntes gnl:
+cc get_next_line.c get_next_line_utils.c
+time -v valgrind ./a.out | cat -e -n
+https://github.com/Tripouille/gnlTester
