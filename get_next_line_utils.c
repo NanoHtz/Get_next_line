@@ -6,7 +6,7 @@
 /*   By: fgalvez- <fgalvez-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 14:04:18 by fgalvez-          #+#    #+#             */
-/*   Updated: 2024/09/20 14:04:19 by fgalvez-         ###   ########.fr       */
+/*   Updated: 2024/11/30 19:16:07 by fgalvez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,35 +68,35 @@ char	*ft_strjoin(char *org_str, char *bff)
 	return (str);
 }
 
-char	*ft_line(char *str)
+char	*get_line(char *str)
 {
 	int		i;
-	char	*nw;
+	char	*line;
 
 	i = 0;
 	if (!str[i])
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
-	nw = (char *)malloc(sizeof(char) * (i + 2));
-	if (!nw)
+	line = (char *)malloc(sizeof(char) * (i + 2));
+	if (!line)
 		return (NULL);
 	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
-		nw[i] = str[i];
+		line[i] = str[i];
 		i++;
 	}
 	if (str[i] == '\n')
 	{
-		nw[i] = str[i];
+		line[i] = str[i];
 		i++;
 	}
-	nw[i] = '\0';
-	return (nw);
+	line[i] = '\0';
+	return (line);
 }
 
-char	*ft_nextstr(char *str)
+char	*prepare_next_call(char *str)
 {
 	int		i;
 	int		n;
