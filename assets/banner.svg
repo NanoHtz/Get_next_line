@@ -1,7 +1,7 @@
-<!-- assets/banner.svg | get_next_line -->
+<!-- assets/banner.svg | get_next_line (rehecho y ajustado al viewBox) -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="360" viewBox="0 0 1280 360" role="img" aria-labelledby="t d">
   <title id="t">get_next_line — Read a file descriptor line by line</title>
-  <desc id="d">Banner oscuro con icono de archivo, buffer circular y líneas de salida.</desc>
+  <desc id="d">Banner oscuro con archivo, buffer circular y líneas de salida; todo dentro del lienzo.</desc>
 
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="0">
@@ -11,11 +11,13 @@
       .title{font:700 56px/1.1 Inter,Segoe UI,Roboto,Arial,sans-serif;fill:#70a5fd}
       .tag{font:500 20px/1.4 Inter,Segoe UI,Roboto,Arial,sans-serif;fill:#c0caf5}
       .mono{font:600 16px/1.35 "JetBrains Mono","Fira Code",Menlo,Consolas,monospace;fill:#c0caf5}
-      .stroke{stroke:#7aa2f7;stroke-width:2}
-      .soft{stroke:#bb9af7;stroke-width:2;opacity:.6}
     </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#7aa2f7"/>
+    </marker>
   </defs>
 
+  <!-- fondo -->
   <rect width="1280" height="360" fill="url(#bg)"/>
 
   <!-- texto -->
@@ -25,41 +27,34 @@
     <text class="tag" y="78">C · Robust against leaks and edge cases</text>
   </g>
 
-  <!-- gráfico derecho -->
-  <g transform="translate(760,60)">
+  <!-- composición derecha (todo cabe en 520 px de ancho) -->
+  <g transform="translate(720,60)">
     <!-- archivo -->
     <g>
-      <rect x="0" y="0" width="120" height="150" rx="8" fill="#0b1020" stroke="#7aa2f7" opacity=".9"/>
-      <path d="M120,36 L90,36 Q80,36 80,26 L80,0" fill="#0b1020" stroke="#7aa2f7"/>
-      <text class="mono" x="16" y="32">fd = 3</text>
-      <text class="mono" x="16" y="56">buffer</text>
-      <text class="mono" x="16" y="80">read()</text>
+      <rect x="0" y="0" width="110" height="150" rx="8" fill="#0b1020" stroke="#7aa2f7" opacity=".9"/>
+      <path d="M110,36 L85,36 Q75,36 75,26 L75,0" fill="#0b1020" stroke="#7aa2f7"/>
+      <text class="mono" x="12" y="32">fd = 3</text>
+      <text class="mono" x="12" y="56">read()</text>
+      <text class="mono" x="12" y="80">stash</text>
     </g>
 
-    <!-- flecha a buffer circular -->
-    <path d="M130,60 C170,60 170,110 210,110" class="stroke" fill="none" marker-end="url(#m)"/>
+    <!-- flecha al buffer -->
+    <path d="M120,60 C150,60 150,100 180,100" fill="none" stroke="#7aa2f7" stroke-width="2" marker-end="url(#m)"/>
 
     <!-- buffer circular -->
-    <g transform="translate(220,90)">
-      <circle cx="60" cy="60" r="60" fill="none" stroke="#70a5fd" stroke-width="3"/>
-      <path d="M60,0 A60,60 0 0 1 120,60" fill="none" stroke="#f7768e" stroke-width="6" opacity=".9"/>
-      <text class="mono" x="60" y="68" text-anchor="middle">BUFFER_SIZE</text>
+    <g transform="translate(190,70)">
+      <circle cx="50" cy="50" r="50" fill="none" stroke="#70a5fd" stroke-width="3"/>
+      <path d="M50,0 A50,50 0 0 1 100,50" fill="none" stroke="#f7768e" stroke-width="6" opacity=".9"/>
+      <text class="mono" x="50" y="58" text-anchor="middle">BUFFER_SIZE</text>
     </g>
 
     <!-- líneas de salida -->
-    <g transform="translate(420,10)">
-      <rect x="0" y="0" width="260" height="180" rx="10" fill="#0b1020" stroke="#bb9af7" opacity=".8"/>
-      <text class="mono" x="16" y="36">"line 1\n"</text>
-      <text class="mono" x="16" y="64">"line 2\n"</text>
-      <text class="mono" x="16" y="92">"line 3\n"</text>
-      <text class="mono" x="16" y="120">NULL (EOF)</text>
+    <g transform="translate(330,0)">
+      <rect x="0" y="0" width="180" height="180" rx="10" fill="#0b1020" stroke="#bb9af7" opacity=".85"/>
+      <text class="mono" x="12" y="36">"line 1\n"</text>
+      <text class="mono" x="12" y="64">"line 2\n"</text>
+      <text class="mono" x="12" y="92">"line 3\n"</text>
+      <text class="mono" x="12" y="120">NULL (EOF)</text>
     </g>
-
-    <!-- marcadores/def flecha -->
-    <defs>
-      <marker id="m" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
-        <path d="M0,0 L7,3 L0,6 z" fill="#7aa2f7"/>
-      </marker>
-    </defs>
   </g>
 </svg>
