@@ -11,9 +11,7 @@
 - [Resumen](#resumen)
 - [¿Para qué?](#para-que)
 - [Explicación](#explicacion)
-- [Compilación](#compilacion)
-- [Uso](#uso)
-- [Salida esperada y pruebas](#salida)
+- [Compilación](#descarga)
 
 ---
 <a id="resumen"></a>
@@ -72,24 +70,30 @@ Si read == -1 → error: liberar stash de ese fd y NULL.
 
 </details>
 
-<a id="para-que"></a>
-## 🧩 ¿Para qué?
+<a id="descarga"></a>
+## ✅ Descarga y compilacion <br>
+
+⬇️ Descarga
 
 ```bash
 git clone https://github.com/NanoHtz/get_next_line.git
 ```
 
+🧪 BUFFER_SIZE
+
+El BUFFER_SIZE se define en la compilacion.
+
+```bash
+make BUFFER_SIZE=42
+# o
+gcc -D BUFFER_SIZE=42 -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c -I include -o demo
+```
+
+🏗️ Compilacion
 
 ```bash
 make
 make clean   # elimina .o
 make fclean  # elimina .o y la librería/objetos finales
 make re      # recompila desde cero
-```
-🧪
-
-El BUFFER_SIZE se define en la compilacion.
-```bash
-make BUFFER_SIZE=42
-# o
-gcc -D BUFFER_SIZE=42 -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c -I include -o demo
+``
