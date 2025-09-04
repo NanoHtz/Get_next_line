@@ -36,13 +36,9 @@ Gestión de memoria dinámica: concatenaciones, recortes, fugas y free en error/
 Estados persistentes entre llamadas (stash estático).
 
 <a id="explicacion"></a>
-<details> <summary><h3> ## 📝 Explicación </h3></summary>
+<details> <summary><h3> 📝 Explicación </h3></summary>
 
-🔁 Contrato de get_next_line
-
-Entrada: fd válido, BUFFER_SIZE > 0.
-
-Salida:
+🔁 get_next_line
 
 Devuelve un char * nuevo con la siguiente línea (incluye \n si la línea lo tenía).
 
