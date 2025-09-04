@@ -23,30 +23,22 @@
 ```c
 char *get_next_line(int fd);
 que devuelve la siguiente línea leída de un file descriptor fd, incluyendo el salto de línea ('\n') si existe, o NULL en EOF o error.
-La función usa read(2) en trozos de tamaño BUFFER_SIZE y mantiene un stash (memoria estática por fd en el bonus) para conservar restos entre llamadas.
-
-Mandatory: un único fd a la vez.
-
-Bonus: múltiples fd simultáneos (p. ej. leyendo de varios ficheros a la vez).
-
-Solo se permiten (en la función principal) read, malloc, free. (En tus tests puedes usar open, close, etc.)
+La función usa un BUFFER_SIZE y mantiene un stash para conservar restos entre llamadas.
 ```
 
 <a id="para-que"></a>
-
-🧩 ¿Para qué?
+## 🧩 ¿Para qué?
 
 ¿Qué se aprende?
 
-Lectura incremental con read(2) y buffers.
+Lectura incremental con read y buffers.
 
 Gestión de memoria dinámica: concatenaciones, recortes, fugas y free en error/EOF.
 
 Estados persistentes entre llamadas (stash estático).
 
 <a id="explicacion"></a>
-
-<details> <summary><h3>📝 Explicación</h3></summary>
+<details> <summary><h3> ## 📝 Explicación </h3></summary>
 
 🔁 Contrato de get_next_line
 
@@ -58,7 +50,7 @@ Devuelve un char * nuevo con la siguiente línea (incluye \n si la línea lo ten
 
 Devuelve NULL en EOF y si no quedan restos, o en error (por ejemplo read == -1).
 
-Propiedad de memoria: el caller debe free() de cada línea devuelta.
+Propiedad de memoria: el caller debe hacer free() de cada línea devuelta.
 
 🧠 Idea clave (stash)
 
@@ -78,38 +70,26 @@ Si read == 0 y stash vacío → NULL (fin real).
 
 Si read == -1 → error: liberar stash de ese fd y NULL.
 
-Para bonus, el stash no es único: se indexa por fd (array o lista enlazada para fd grandes).
-Ej.: static char *stash[FD_MAX]; o una lista {fd, *stash, next}.
-
-.
-
-🧼 Anti-leaks checklist
-
-Cada strjoin que cree nueva memoria debe liberar lo que reemplaza.
-
-En EOF, vacía y libera stash antes de devolver NULL.
-
-En error de read, libera stash del fd.
-
-Tests con Valgrind: imprescindible.
-
 </details>
 
+<a id="para-que"></a>
+## 🧩 ¿Para qué?
+
+```bash
 git clone https://github.com/NanoHtz/get_next_line.git
-cd get_next_line
+```
 
 
-# Mandatory
+```bash
 make
-# Bonus (multi-FD)
-make bonus
-
-# Limpieza
 make clean   # elimina .o
 make fclean  # elimina .o y la librería/objetos finales
 make re      # recompila desde cero
+```
+🧪
 
-
+El BUFFER_SIZE se define en la compilacion.
+```bash
 make BUFFER_SIZE=42
 # o
 gcc -D BUFFER_SIZE=42 -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c -I include -o demo
