@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/NanoHtz/Assets/main/get_next_line/banner.svg" alt="get_next_line banner">
 </p>
 
-<p align="center"><i>📄 get_next_line (42 Cursus) — Lectura línea a línea desde un file descriptor con `read(2)`, buffer configurable y stash estático. Bonus: soporte multi-FD.</i></p>
+<p align="center"><i>📄 get_next_line  — Lectura línea a línea desde un file descriptor con buffer configurable y stash estático.</i></p>
 
 ---
 
