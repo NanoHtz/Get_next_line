@@ -41,29 +41,33 @@ La función usa un BUFFER_SIZE y mantiene un stash para conservar restos entre l
 
 🔁 get_next_line
 
-Devuelve un char * nuevo con la siguiente línea (incluye \n si la línea lo tenía).
+- Devuelve un char * nuevo con la siguiente línea (incluye \n si la línea lo tenía).
 
-Devuelve NULL en EOF y si no quedan restos, o en error (por ejemplo read == -1).
+- Devuelve NULL en EOF y si no quedan restos, o un error (por ejemplo read == -1).
 
-Propiedad de memoria: el caller debe hacer free() de cada línea devuelta.
+- La función que llama a get_next_line es la responsable de hacer el free(), de esto no se encarga get_next_line.
 
-🧠 Idea clave (stash)
+🧠 Idea clave : acumulador
 
-Se mantiene un stash (acumulador) con lo leído hasta el momento que aún no se ha devuelto.
+Se mantiene un acumulador con lo leído hasta el momento que aún no se ha devuelto.
 
 Bucle:
 
-¿Hay \n en el stash?
+Va recorriendo todas las lineas hasta \n o hasta llenar el buffer, dependiendo cual sea mas limitante.
 
-Sí → cortar hasta \n y devolver esa línea; guardar el resto.
+Segun el tamaño del buffer en realcion a la linea leida, guarda o imprime una linea.
 
-No → leer con read(fd, buf, BUFFER_SIZE) y concatenar al stash.
+¿Hay \n en el acumulador?
 
-Si read == 0 (EOF) y el stash no está vacío, devolver lo que quede (sin \n).
+- Sí → cortar hasta \n y devuelve esa línea; guardar el resto.
 
-Si read == 0 y stash vacío → NULL (fin real).
+- No → lee con read(fd, buf, BUFFER_SIZE) hasta cumplir con el tamaño del buffer y concatenar al acumulador.
 
-Si read == -1 → error: liberar stash de ese fd y NULL.
+- Si read == 0 (EOF) y el acumulador no está vacío, devolver lo que quede (sin \n).
+
+- Si read == 0 y acumulador vacío → NULL (fin real).
+
+- Si read == -1 → error: liberar stash de ese fd y NULL.
 
 
 <a id="descarga"></a>
@@ -95,3 +99,7 @@ make re      # recompila desde cero
 ```
 <a id="pruebas"></a>
 🏗️ Pruebas
+<br>
+Recomiendo mucho este tester para la realizacion de pruebas de funcionamiento:
+<br>
+https://github.com/Tripouille/gnlTester
