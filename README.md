@@ -12,6 +12,7 @@
 - [¿Para qué?](#para-que)
 - [Explicación](#explicacion)
 - [Compilación](#descarga)
+- [Pruebas](#pruebas)
 
 ---
 <a id="resumen"></a>
@@ -36,7 +37,7 @@ Gestión de memoria dinámica: concatenaciones, recortes, fugas y free en error/
 Estados persistentes entre llamadas (stash estático).
 
 <a id="explicacion"></a>
-<details> <summary><h3> 📝 Explicación </h3></summary>
+<summary><h3> 📝 Explicación </h3></summary>
 
 🔁 get_next_line
 
@@ -64,7 +65,6 @@ Si read == 0 y stash vacío → NULL (fin real).
 
 Si read == -1 → error: liberar stash de ese fd y NULL.
 
-</details>
 
 <a id="descarga"></a>
 ## ✅ Descarga y compilacion <br>
@@ -92,4 +92,6 @@ make
 make clean   # elimina .o
 make fclean  # elimina .o y la librería/objetos finales
 make re      # recompila desde cero
-``
+```
+<a id="pruebas"></a>
+🏗️ Pruebas
