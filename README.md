@@ -99,6 +99,7 @@ make re      # recompila desde cero
 ```
 <a id="pruebas"></a>
 🏗️ Pruebas
+Uno de los verdaderos objetivos de este proyecto es la gestión de memoria, es indispensable que utilices y te familiarices con herramientas que te ayuden a comprobar los leaks o fugas de memoria, Valgrind o sanitizer son fundamentales.
 <br>
 Recomiendo mucho este tester para la realizacion de pruebas de funcionamiento:
 <br>
