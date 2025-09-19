@@ -30,11 +30,11 @@ La función usa un BUFFER_SIZE y mantiene un stash para conservar restos entre l
 
 ¿Qué se aprende?
 
-Lectura incremental con read y buffers.
+- Lectura incremental con read y buffers.
 
-Gestión de memoria dinámica: concatenaciones, recortes, fugas y free en error/EOF.
+- Gestión de memoria dinámica: concatenaciones, recortes, fugas y free en error/EOF.
 
-Estados persistentes entre llamadas (stash estático).
+- Guardar memoria entre llamadas, para poder recordar en que punto estabamos.
 
 <a id="explicacion"></a>
 <summary><h3> 📝 Explicación </h3></summary>
