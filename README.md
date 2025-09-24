@@ -25,7 +25,7 @@
 char *get_next_line(int fd);
 ```
 
-que devuelve la siguiente línea leída de un file descriptor fd, incluyendo el salto de línea ('\n') si existe, o NULL en EOF o error.
+Que devuelve la siguiente línea leída de un file descriptor fd, incluyendo el salto de línea ('\n') si existe, o NULL en EOF o error.
 La función usa un BUFFER_SIZE y mantiene un stash para conservar restos entre llamadas.
 
 > Este proyecto sigue la **Norma oficial de 42** para estilo en C (Norminette).
