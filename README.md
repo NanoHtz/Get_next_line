@@ -21,11 +21,11 @@
 ## ✅ Resumen del proyecto<br>
 
 **get_next_line** implementa una función:
-```c
+
 char *get_next_line(int fd);
 que devuelve la siguiente línea leída de un file descriptor fd, incluyendo el salto de línea ('\n') si existe, o NULL en EOF o error.
 La función usa un BUFFER_SIZE y mantiene un stash para conservar restos entre llamadas.
-```
+
 > Este proyecto sigue la **Norma oficial de 42** para estilo en C (Norminette).
 > En todos los proyectos de 42, el uso de la gran mayoria de bibliotecas esta prohibido, siendo nuestro propio desarrollo libft el sustituto de las funciones básicas. 
 > - Código legible.  
