@@ -5,7 +5,9 @@
 
 <p align="center"><i>📄 get_next_line  — Lectura línea a línea desde un file descriptor con buffer configurable y stash estático.</i></p>
 
----
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NanoHtz/Assets/main/100.png" alt="gnl nota" height="120">
+</p>
 
 ## Índice
 - [Resumen](#resumen)
@@ -24,7 +26,14 @@ char *get_next_line(int fd);
 que devuelve la siguiente línea leída de un file descriptor fd, incluyendo el salto de línea ('\n') si existe, o NULL en EOF o error.
 La función usa un BUFFER_SIZE y mantiene un stash para conservar restos entre llamadas.
 ```
-
+> Este proyecto sigue la **Norma oficial de 42** para estilo en C (Norminette).
+> En todos los proyectos de 42, el uso de la gran mayoria de bibliotecas esta prohibido, siendo nuestro propio desarrollo libft el sustituto de las funciones básicas. 
+> - Código legible.  
+> - Funciones pequeñas (<25 líneas),
+> - 4 parámetros por función,
+> - Nombres claros en `snake_case` y en inglés.
+> - 1 responsabilidad por función.
+>  - Variables declaradas al inicio del bloque(maximo 4 por función). 
 <a id="para-que"></a>
 ## 🧩 ¿Para qué?
 
